@@ -1,0 +1,192 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+ :root {
+    --text-color: white;
+    --bg-url: url(./Pasty/Backgrounddark.png);
+    --stroke-color: rgba(106, 110, 231, 0.942);
+    --surface-color: rgba(79, 33, 205, 0.622);
+    --surface-color-hover: rgba(72, 11, 241, 0.692);
+    --hightlight-color: rgba(255, 255, 255, 0.1);
+    --switch-bg-url: url(./Pasty/moon-stars.svg);
+}
+
+.light{
+    --text-color: black;
+    --bg-url: url(./Pasty/backgroundAzis.png);
+    --stroke-color: rgba(164, 124, 239, 0.794);
+    --surface-color: rgba(186, 180, 238, 0.731);
+    --surface-color-hover: rgba(148, 111, 250, 0.692);
+    --hightlight-color: rgba(86, 15, 239, 0.1);
+    --switch-bg-url: url(./Pasty/sun.svg);
+}
+ 
+body {
+ background: var(--bg-url) top center/cover;
+ height: 100vh;
+}
+
+body *{
+    font-family: "Quicksand", sans-serif;
+  color: var(--text-color);
+}
+
+#container {
+    width: 360px;
+    max-width: 588px;
+   margin: 56px auto 0px;
+  padding: 0 24px;
+}
+
+/*profile*/
+#profile {
+    text-align: center;
+    padding: 20px;
+}
+
+#profile img{
+    width: 112px;
+}
+
+#profile p {
+    font-weight:  500; 
+    line-height: 24px;
+    margin-top: 8px;
+    
+}
+
+/*switch*/
+#switch {
+    position: relative;
+    width: 64px;
+    margin: 4px auto;
+
+}
+
+#switch button{
+    width: 32px;
+    height: 32px;
+    background: rgb(175, 156, 241)  var(--switch-bg-url) no-repeat center;
+    border: 0;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    z-index: 1;
+    transform: translateY(-50%);
+    animation: slide-back 0.2s;
+}
+ 
+#switch button:hover{
+    outline: 8px solid var(--hightlight-color);
+}
+
+.light #switch button{
+  animation: slide-in 0.4s forwards;
+}
+
+#switch span{
+    display: block;
+    width: 64px;
+    height: 24px;
+    background: var(--surface-color);
+    border: 2px solid var(--stroke-color);
+   backdrop-filter: blur(4px);
+    border-radius: 9999px;
+
+}
+
+/* links*/
+
+ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 24px 0;
+}
+
+ul li a {
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     padding: 16px 24px;
+
+     background: var(--surface-color);
+     border: 2px solid var(--stroke-color);
+     border-radius: 8px;
+     box-shadow: 3px 3px 5px 0 rgb(2, 24, 133);
+     backdrop-filter: blur (4px);
+     -webkit-backdrop-filter: blur(4px);
+
+     text-decoration: none;
+     font-weight: 500;
+     
+     transition: background 0.2s;
+     
+}
+
+/*pseudo-selector*/
+ul li a:hover {
+background:var(--surface-color-hover);
+border: 2px solid rgba(66, 104, 239, 0.965)
+}
+
+/* social links */
+#social-links {
+    display:flex;
+    justify-content: center;
+  
+    padding: 24px 0;
+    font-size: 24px;
+}
+
+#social-links a{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+    transition: background 0.2s;
+    border-radius: 50%;
+}
+
+#social-links a:hover {
+    background: var(--hightlight-color);
+    padding: 16px;
+}
+
+footer {
+    padding: 24px 0;
+    text-align: center;
+    font-size: 14px;
+}
+
+/*media queries*/
+@media (min-width:700px) {
+    :root{
+        --bg-url: url(./pasty/darktwo.png)
+    }
+    .light{
+        --bg-url:url(./pasty/lighttwo.png)
+    }
+}
+/* animation */
+@keyframes slide-in{
+    from {
+        left: 0;
+    }
+    to {
+        left: 50%;
+    }
+}
+@keyframes slide-back{
+    from{
+        left:50%
+    }
+    to{
+        left:0
+    }
+}
